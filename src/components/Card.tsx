@@ -6,7 +6,7 @@ import { Tooltip } from '@grafana/ui';
 
 export default function Card({ data }: any) {
   const {
-    device_id = null,
+    // device_id = null,
 
     pressure_temp = 0,
     pressure_status = 0,
@@ -59,7 +59,8 @@ export default function Card({ data }: any) {
               font-weight: 600;
             `)}
           >
-            {device_id}
+            {/* {device_id} */}
+            Demo hệ thống nhiệt độ
           </div>
         </div>
 
