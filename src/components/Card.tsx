@@ -8,17 +8,17 @@ export default function Card({ data }: any) {
   const {
     // device_id = null,
 
-    pressure_temp = 0,
-    pressure_status = 0,
-    pressure_error_text = '',
-    lower_pressure_temp = '',
-    upper_pressure_temp = '',
+    internal_temp = 0,
+    internal_status = 0,
+    internal_error_text = '',
+    lower_internal_temp = '',
+    upper_internal_temp = '',
 
-    mold_temp = 0,
-    mold_status = 0,
-    mold_error_text = '',
-    lower_mold_temp = '',
-    upper_mold_temp = '',
+    platen_temp = 0,
+    platen_status = 0,
+    platen_error_text = '',
+    lower_platen_temp = '',
+    upper_platen_temp = '',
   } = data;
 
   return (
@@ -69,7 +69,7 @@ export default function Card({ data }: any) {
           className={cx(css`
             position: relative;
             flex: 1 1 0%;
-            background: ${STEP_COLORS.find((item) => item.id.toString() === mold_status.toString())?.color ||
+            background: ${STEP_COLORS.find((item) => item.id.toString() === platen_status.toString())?.color ||
             STEP_COLORS[0].color};
             border-radius: 3px;
 
@@ -83,8 +83,8 @@ export default function Card({ data }: any) {
           `)}
         >
           {/* warning */}
-          {mold_error_text && (
-            <Tooltip content={mold_error_text} placement="bottom" theme="error">
+          {platen_error_text && (
+            <Tooltip content={platen_error_text} placement="bottom" theme="error">
               <div
                 className={cx(css`
                   position: absolute;
@@ -130,7 +130,7 @@ export default function Card({ data }: any) {
               text-align: center;
             `)}
           >
-            {mold_temp} <span>&#176;</span>C
+            {platen_temp} <span>&#176;</span>C
           </span>
 
           <span
@@ -142,7 +142,7 @@ export default function Card({ data }: any) {
               margin: 10px 0;
             `)}
           >
-            (Ngưỡng: {lower_mold_temp} - {upper_mold_temp} &#176;C)
+            (Ngưỡng: {lower_platen_temp} - {upper_platen_temp} &#176;C)
           </span>
         </div>
 
@@ -151,7 +151,7 @@ export default function Card({ data }: any) {
           className={cx(css`
             position: relative;
             flex: 1 1 0%;
-            background: ${STEP_COLORS.find((item) => item.id.toString() === pressure_status.toString())?.color ||
+            background: ${STEP_COLORS.find((item) => item.id.toString() === internal_status.toString())?.color ||
             STEP_COLORS[0].color};
             border-radius: 3px;
 
@@ -167,8 +167,8 @@ export default function Card({ data }: any) {
           `)}
         >
           {/* warning */}
-          {pressure_error_text && (
-            <Tooltip content={pressure_error_text} placement="bottom" theme="error">
+          {internal_error_text && (
+            <Tooltip content={internal_error_text} placement="bottom" theme="error">
               <div
                 className={cx(css`
                   position: absolute;
@@ -215,7 +215,7 @@ export default function Card({ data }: any) {
               text-align: center;
             `)}
           >
-            {pressure_temp} <span>&#176;</span>C
+            {internal_temp} <span>&#176;</span>C
           </span>
 
           <span
@@ -227,7 +227,7 @@ export default function Card({ data }: any) {
               margin: 10px 0;
             `)}
           >
-            (Ngưỡng: {lower_pressure_temp} - {upper_pressure_temp} &#176;C)
+            (Ngưỡng: {lower_internal_temp} - {upper_internal_temp} &#176;C)
           </span>
         </div>
       </div>
